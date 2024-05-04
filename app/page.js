@@ -89,7 +89,7 @@ export default function Home() {
         </dvi>
       </section>
       <div className=" bg-[#F39F1F] 2xl:py-8 py-5 flex justify-center px-10">
-        <a href="tel:+998950555555" className=" text-[#404040] border-2 border-[#404040] px-8 py-2 rounded-xl text-2xl font-extrabold hover:text-white hover:border-white">Вызвать эвакуатор от 50000 сум</a>
+        <a href="tel:+998950555555" className=" text-[#404040] text-center border-2 border-[#404040] px-8 py-2 rounded-xl text-2xl font-extrabold hover:text-white hover:border-white">Вызвать эвакуатор от 50000 сум</a>
       </div>
       <section id="price" className="flex flex-col justify-center  pt-12 px-10 pb-8">
         <h2 className="text-[#F39F1F] text-center font-bold lg:text-6xl text-3xl">Цены на эвакуации</h2>
@@ -122,7 +122,7 @@ export default function Home() {
               <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Эвакуация легковых автомобилей</h5>
 
               <p className=" text-xl text-center">от <span className=" font-bold text-2xl">50.000</span> сум</p>
-              <a href="tel:+998950555555" class="inline-flex items-center ml-[4rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <a href="tel:+998950555555" class="inline-flex items-center ml-[5rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Заказать
 
               </a>
@@ -138,7 +138,7 @@ export default function Home() {
               <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Эвакуация внедорожников до 4т</h5>
 
               <p className=" text-xl text-center">от <span className=" font-bold text-2xl">50.000</span> сум</p>
-              <a href="tel:+998950555555" class="inline-flex items-center ml-[4rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <a href="tel:+998950555555" class="inline-flex items-center ml-[5rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Заказать
 
               </a>
@@ -154,7 +154,7 @@ export default function Home() {
               <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Перевозка спецтехники до 4т</h5>
 
               <p className=" text-xl text-center">от <span className=" font-bold text-2xl">50.000</span> сум</p>
-              <a href="tel:+998950555555" class="inline-flex items-center ml-[4rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <a href="tel:+998950555555" class="inline-flex items-center ml-[5rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Заказать
 
               </a>
