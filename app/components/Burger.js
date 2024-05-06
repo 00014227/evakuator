@@ -5,7 +5,7 @@ import { Link } from "react-scroll"
 export default function Burger() {
     const [open, setOpen] = useState(false)
     return (
-        <div className="lg:hidden w-screen bg-[#404040] h-[4rem] flex items-center justify-center ">
+        <div className="lg:hidden w-screen bg-[#404040] h-[4rem] flex items-center justify-end pr-6 ">
             <button onClick={() => setOpen(!open)}>
                 <svg width="50px" height="80px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 18L20 18" stroke="#F39F1F" stroke-width="2" stroke-linecap="round" />

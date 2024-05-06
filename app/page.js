@@ -27,17 +27,17 @@ export default function Home() {
         <div className="lg:hidden w-screen h-[1rem] bg-[#F39F1F]"></div>
         <div className=" lg:flex items-center 2xl:py-8 py-5 lg:px-24 px-10 justify-between lg:border-b-0 border-b border-white space-y-4">
           <h1 className=" text-[#F39F1F] font-extrabold 2xl:text-5xl lg:text-4xl text-3xl uppercase">эвакуатор 725</h1>
-          <div className="flex items-center gap-4 ml-10 ">
+          <div className="flex items-center lg:gap-4 gap-2 ml-4 ">
 
-            <Image src={Time} className=" w-[2.5rem] h-[2.6rem]" />
+            <Image src={Time} className=" lg:w-[2.5rem] w-[1.8rem] h-[1.9rem] lg:h-[2.6rem]" />
 
             <p className=" lg:block hidden text-white 2xl:text-4xl lg:text-2xl">Круглосуточно <br /> без выходных</p>
             <p className="lg:hidden block text-white 2xl:text-4xl lg:text-2xl">Круглосуточно без выходных</p>
 
           </div>
 
-          <div className="flex gap-4 items-center ml-20">
-            <Image src={Phone} className=" w-[2.5rem] h-[2.6rem]" />
+          <div className="flex lg:gap-4 gap-2 items-center ml-10">
+            <Image src={Phone} className=" lg:w-[2.5rem] w-[1.8rem] h-[1.9rem] lg:h-[2.6rem]" />
             <p className="text-[#F39F1F] font-extrabold 2xl:text-5xl lg:text-4xl uppercase">+998  (95 ) 055-55-55</p>
           </div>
         </div>
@@ -76,11 +76,11 @@ export default function Home() {
             <input
               type="text"
               placeholder="Имя"
-              className=" max-w-[562px] max-h-[80px] w-full h-[3rem] rounded-xl bg-[#D9D9D9]" />
+              className=" pl-4 max-w-[562px] max-h-[80px] w-full h-[3rem] rounded-xl bg-[#D9D9D9]" />
             <input
               type="text"
               placeholder="Введите номер"
-              className=" max-w-[562px] max-h-[80px] w-full h-[3rem] rounded-xl bg-[#D9D9D9]" />
+              className=" pl-4 max-w-[562px] max-h-[80px] w-full h-[3rem] rounded-xl bg-[#D9D9D9]" />
             <div className=" flex justify-end items-end">
               <button className=" bg-[#F5900D] mr-auto text-white px-9 py-3 rounded-md">Вызвать</button>
 
@@ -89,7 +89,7 @@ export default function Home() {
         </dvi>
       </section>
       <div className=" bg-[#F39F1F] 2xl:py-8 py-5 flex justify-center px-10">
-        <a href="tel:+998950555555" className=" text-[#404040] text-center border-2 border-[#404040] px-8 py-2 rounded-xl text-2xl font-extrabold hover:text-white hover:border-white">Вызвать эвакуатор от 50000 сум</a>
+        <a href="tel:+998950555555" className=" text-[#404040] text-center border-2 border-[#404040] px-8 py-2 rounded-xl text-2xl font-extrabold hover:text-white hover:border-white">Вызвать эвакуатор от 100000 сум</a>
       </div>
       <section id="price" className="flex flex-col justify-center  pt-12 px-10 pb-8">
         <h2 className="text-[#F39F1F] text-center font-bold lg:text-6xl text-3xl">Цены на эвакуации</h2>
@@ -105,7 +105,7 @@ export default function Home() {
 
               <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Эвакуация мотоциклов</h5>
 
-              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">50.000</span> сум</p>
+              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">100.000</span> сум</p>
               <a href="tel:+998950555555" class="inline-flex items-center ml-[4rem]  px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Заказать
 
@@ -121,7 +121,7 @@ export default function Home() {
 
               <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Эвакуация легковых автомобилей</h5>
 
-              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">50.000</span> сум</p>
+              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">200.000</span> сум</p>
               <a href="tel:+998950555555" class="inline-flex items-center ml-[5rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Заказать
 
@@ -137,7 +137,7 @@ export default function Home() {
 
               <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Эвакуация внедорожников до 4т</h5>
 
-              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">50.000</span> сум</p>
+              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">300.000</span> сум</p>
               <a href="tel:+998950555555" class="inline-flex items-center ml-[5rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Заказать
 
@@ -153,7 +153,7 @@ export default function Home() {
 
               <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Перевозка спецтехники до 4т</h5>
 
-              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">50.000</span> сум</p>
+              <p className=" text-xl text-center">от <span className=" font-bold text-2xl">400.000</span> сум</p>
               <a href="tel:+998950555555" class="inline-flex items-center ml-[5rem]    px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Заказать
 
@@ -166,12 +166,12 @@ export default function Home() {
         <div className="w-full h-[1.7rem] bg-[#F39F1F]"></div>
         <div className="flex flex-col justify-center items-center pt-10 pb-14 px-10">
           <h2 className=" lg:text-5xl text-3xl text-[#404040] font-bold">ЭВАКУАТОР 725 ДЕШЕВО</h2>
-          <p className=" text-[#F39F1F] lg:text-3xl text-2xl font-bold mt-4">Эвакуация от 50 000 сум — это реально выгодно!</p>
+          <p className=" text-[#F39F1F] lg:text-3xl text-2xl font-bold mt-4">Эвакуация от 100 000 сум — это реально выгодно!</p>
 
           <p className="lg:w-[70rem] text-[#404040] lg:mt-16 mt-10 font-medium lg:text-2xl text-xl">
-            Эвакутор 725 – ваш надежный партнер в сфере аварийной и технической помощи на дорогах Ташкента! Мы – лидер среди компаний, предоставляющих услуги по эвакуации автомобилей в городе и его окрестностях. С помощью нашего опыта и профессионализма мы гарантируем качественное обслуживание по доступным ценам.<br />
+            Эвакутор 725 – ваш надежный партнер в сфере аварийной и технической помощи на дорогах Ташкента! Мы компания, предоставляющий услуги по эвакуации автомобилей в городе и его окрестностях. С помощью нашего профессионализма мы гарантируем качественное обслуживание по доступным ценам.<br />
           </p>
-          <p className="lg:w-[70rem] text-[#404040] lg:mt-16 mt-8 font-medium lg:text-2xl text-xl">На протяжении более десяти лет мы успешно работаем на рынке транспортных услуг, обеспечивая безопасное перемещение автомобилей и оказывая помощь водителям по территорию Ташкента. Наша команда гордится высокой квалификацией водителей-специалистов, которые регулярно проходят обучение и аттестацию в соответствии с требованиями государственных органов.</p>
+          <p className="lg:w-[70rem] text-[#404040] lg:mt-16 mt-8 font-medium lg:text-2xl text-xl">Мы - новая компания, успешно действующая на рынке транспортных услуг. Мы заботимся о безопасности автомобильных перемещений и предоставляем помощь водителям на территории Ташкента. Наша команда гордится высокой квалификацией наших водителей-специалистов, которые регулярно проходят обучение и аттестацию в соответствии с требованиями государственных органов.</p>
         </div>
         <div className="w-full h-[1.7rem] bg-[#F39F1F]"></div>
 
@@ -182,7 +182,7 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center">
             <Image src={Pr1} />
             <p className=" uppercase text-white text-xl">недорого</p>
-            <p className=" text-white w-[15rem] text-center">Гарантия низкой цены. Зачем переплачивать когда есть мы? Эвакуация авто от 50.000 сум;</p>
+            <p className=" text-white w-[15rem] text-center">Гарантия низкой цены. Зачем переплачивать когда есть мы? Эвакуация авто от 100.000 сум;</p>
           </div>
 
           <div className="flex flex-col justify-center items-center">
@@ -200,7 +200,7 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center mt-[1.5rem]">
             <Image src={Pr4} />
             <p className=" uppercase text-white text-xl">ВСЕ ВИДЫ УСЛУГ</p>
-            <p className=" text-white w-[15rem] text-center">Гарантия низкой цены. Зачем переплачивать когда есть мы? Эвакуация авто от 50.000 сум;</p>
+            <p className=" text-white w-[15rem] text-center">Гарантия низкой цены. Зачем переплачивать когда есть мы? Эвакуация авто от 100.000 сум;</p>
           </div>
         </div>
       </section>
