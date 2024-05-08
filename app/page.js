@@ -17,7 +17,7 @@ import MiniTrack from "./assets/b2.png"
 import AllDay from "./assets/b3.png"
 import Burger from "./components/Burger";
 import Navbar from "./components/Navbar";
-import { useState } from "react";
+import {  useState } from "react";
 import axios from "axios";
 import { Dialog, DialogBody } from "@material-tailwind/react";
 import Check from "./assets/images.png"
@@ -28,6 +28,9 @@ export default function Home() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [formStatus, setFormStatus] = useState(null);
   const [open, setOpen] = useState(false);
+  const [close, setClose] = useState(false)
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,11 +58,17 @@ export default function Home() {
 
   };
 
+  const handleBurgerMenuOpen = () => {
+    console.log('Closing burger menu');
+
+    setClose(close => !close); // Close the burger menu when it's opened in the child component
+};
+
   return (
     // <main className="flex min-h-screen flex-col items-center justify-between px-24 bg-[#404040]">
-    <main className="flex min-h-screen flex-col bg-[#404040]">
-      <section className=" lg:h-screen" id="hero">
-        <Burger />
+    <main  className="flex min-h-screen flex-col bg-[#404040]">
+      <section onClick={handleBurgerMenuOpen} className=" lg:h-screen" id="hero">
+        <Burger close = {close}  />
         <div className="lg:hidden w-screen h-[1rem] bg-[#F39F1F]"></div>
         <div className=" lg:flex items-center 2xl:py-8 py-5 lg:px-24 px-20 justify-between  lg:border-b-0 border-b border-white space-y-4">
           <h1 className=" text-[#F39F1F] font-extrabold 2xl:text-5xl lg:text-4xl text-3xl uppercase">эвакуатор 725</h1>
@@ -80,7 +89,7 @@ export default function Home() {
 
         <Navbar />
 
-        <dvi className="lg:flex justify-center items-center 2xl:gap-[9rem] lg:gap-[4rem]">
+        <dvi  className="lg:flex justify-center items-center 2xl:gap-[9rem] lg:gap-[4rem]">
           <div className=" 2xl:mt-[6rem] lg:px-0 px-10">
             <Image src={Track} />
           </div>

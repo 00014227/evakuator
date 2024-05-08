@@ -1,12 +1,24 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-scroll"
 
-export default function Burger() {
-    const [open, setOpen] = useState(false)
+export default function Burger({close }) {
+    console.log(close, 'aaaaaaaaaa')
+    const [open, setOpen] = useState(close)
+
+ 
+    useEffect(() => {
+        setOpen(close);
+    }, [close]);
+
+    const handleMenuToggle = () => {
+        setOpen(!open);
+       
+    };
+
     return (
-        <div className="lg:hidden w-screen bg-[#404040] h-[4rem] flex items-center justify-end pr-6 ">
-            <button onClick={() => setOpen(!open)}>
+        <div className="lg:hidden w-full bg-[#404040] h-[4rem] flex items-center justify-end pr-4">
+            <button onClick={handleMenuToggle} className=' '>
                 <svg width="50px" height="80px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 18L20 18" stroke="#F39F1F" stroke-width="2" stroke-linecap="round" />
                     <path d="M4 12L20 12" stroke="#F39F1F" stroke-width="2" stroke-linecap="round" />
