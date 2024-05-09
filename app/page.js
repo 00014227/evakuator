@@ -17,7 +17,7 @@ import MiniTrack from "./assets/b2.png"
 import AllDay from "./assets/b3.png"
 import Burger from "./components/Burger";
 import Navbar from "./components/Navbar";
-import {  useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Dialog, DialogBody } from "@material-tailwind/react";
 import Check from "./assets/images.png"
@@ -25,29 +25,41 @@ import ErrorMark from "./assets/symbol.png"
 
 export default function Home() {
   const [name, setName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('+998');
   const [formStatus, setFormStatus] = useState(null);
   const [open, setOpen] = useState(false);
   const [close, setClose] = useState(false)
+  const [validPhoneNumber, setValidPhoneNumber] = useState(true);
 
+  const handlePhoneNumberChange = (e) => {
+    // Check if e is defined before accessing its properties
+    if (e && e.target) {
+      const inputValue = e.target.value;
+      // Regular expression to check if the input starts with "+998" followed by digits
+      const isValid = /^\+998\d*$/.test(inputValue);
+
+      setPhoneNumber(inputValue);
+      setValidPhoneNumber(isValid);
+    }
+  };
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (name.trim() !== '' && phoneNumber.trim() !== '') {
-      const message = `Новый клиет:\nИмя: ${name}\nТелефонный номер: ${phoneNumber}`;
-      const botToken = '7045382663:AAE5yROztgrVRa5gln9e4A5Op8k6k-kNK1g';
-      const chatId = '-4270854817';
-  
-      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-      const params = new URLSearchParams({ chat_id: chatId, text: message });
-  
+    if (name.trim() !== '' && phoneNumber.trim() !== '' && validPhoneNumber == true) {
+      // const message = `Новый клиет:\nИмя: ${name}\nТелефонный номер: ${phoneNumber}`;
+      // const botToken = '7045382663:AAE5yROztgrVRa5gln9e4A5Op8k6k-kNK1g';
+      // const chatId = '-4270854817';
+
+      // const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+      // const params = new URLSearchParams({ chat_id: chatId, text: message });
+
       try {
-        await axios.post(url, params); 
-  
+        await axios.post(url, params);
+
       } catch (error) {
         console.error('Error sending message:', error);
-  
+
       }
       setFormStatus('success');
     } else {
@@ -61,21 +73,21 @@ export default function Home() {
   const handleClose = () => {
     setClose(false)
   }
-  
+
   const handleBurgerMenuOpen = () => {
 
-   
+
     setClose(!close); // Close the burger menu when it's opened in the child component
 
-};
+  };
 
   return (
     // <main className="flex min-h-screen flex-col items-center justify-between px-24 bg-[#404040]">
-    <main  className="flex min-h-screen flex-col bg-[#404040]">
-      <section  className=" lg:h-screen" id="hero">
-        <Burger close = {close} handleClick={handleBurgerMenuOpen} />
+    <main className="flex min-h-screen flex-col bg-[#404040]">
+      <section className=" lg:h-screen" id="hero">
+        <Burger close={close} handleClick={handleBurgerMenuOpen} />
         <div className="lg:hidden w-screen h-[1rem] bg-[#F39F1F]"></div>
-        <div className=" lg:flex items-center 2xl:py-8 py-5 lg:px-24 px-20 justify-between  lg:border-b-0 border-b border-white space-y-4">
+        <div className=" lg:flex items-center 2xl:py-8 py-5 lg:px-24 px-10 justify-between  lg:border-b-0 border-b border-white space-y-4">
           <h1 className=" text-[#F39F1F] font-extrabold 2xl:text-5xl lg:text-4xl text-3xl uppercase">эвакуатор 725</h1>
           <div className="flex items-center lg:gap-4 gap-2 ml-4 ">
 
@@ -94,7 +106,7 @@ export default function Home() {
 
         <Navbar />
 
-        <dvi  onClick={handleClose} className="lg:flex justify-center items-center 2xl:gap-[9rem] lg:gap-[4rem]">
+        <dvi onClick={handleClose} className="lg:flex justify-center items-center 2xl:gap-[9rem] lg:gap-[4rem]">
           <div className=" 2xl:mt-[6rem] lg:px-0 px-10">
             <Image src={Track} alt='track' />
           </div>
@@ -111,54 +123,57 @@ export default function Home() {
               type="text"
               placeholder="Введите номер"
               value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              onChange={handlePhoneNumberChange}
               className=" pl-4 max-w-[562px] max-h-[80px] w-full h-[3rem] rounded-xl bg-[#D9D9D9]" />
+            {!validPhoneNumber && <p className="text-red-500 text-center">Пожалуйста, введите номер в формате +998XXXXXXXXX.</p>}
+
             <div className=" flex justify-end items-end">
               <button type="submit" className=" bg-[#F5900D] mr-auto text-white px-9 py-3 rounded-md">Вызвать</button>
 
             </div>
 
-        
+
           </form>
           <Dialog
-              open={formStatus !== null && open}
-              handler={() => {
-                setFormStatus(null);
-                setOpen(false);
-              }}
-              className="lg:w-[30rem] w-full h-[20rem] mx-auto  mt-[25vh] flex items-center justify-center">
-              <DialogBody className=''>
-                <div className='flex flex-col items-center justify-center'>
+            open={formStatus !== null && open}
+            handler={() => {
+              setFormStatus(null);
+              setOpen(false);
+            }}
+            className="lg:w-[30rem] w-full h-[20rem] mx-auto  mt-[25vh] flex items-center justify-center">
+            <DialogBody className=''>
+              <div className='flex flex-col items-center justify-center'>
 
 
-                  {formStatus === 'success' && (
-                    <div className='flex flex-col items-center justify-center space-y-4 '>
-                      <Image className='w-[5rem] h-[5rem]' src={Check} alt='Check Mark' />
-                      <p className='text-3xl'>Заявка принята</p>
-                      <div className=" px-2">
-                      <p className='text-xl text-center'>Спасибо! Ваше сообщение отправлено!</p>
+                {formStatus === 'success' && (
+                  <div className='flex flex-col items-center justify-center'>
+                    <Image className='w-[5rem] h-[5rem]' src={Check} alt='Check Mark' />
+                    <p className='text-3xl'>Заявка принята</p>
+                    <div className=" px-2">
                       <p className='text-xl  text-center'>Мы свяжемся с вами в ближайшее время</p>
-                      </div>
-                      <button onClick={() => setOpen(!open)} className=' bg-[#F5900D] font-bold text-white rounded-lg px-10 mt-5 py-2 text-lg'>Готово</button>
                     </div>
-                  )}
-                  {formStatus === 'error' && (
-                    <div className='flex flex-col items-center justify-center'>
-                      <Image className='w-[5rem] h-[5rem]' src={ErrorMark} alt='Error Mark' />
-                      <p className='text-3xl'>Ошибка отправки</p>
-                      <p className='text-xl w-[20rem] text-center'>Пожалуйста, убедитесь, что вы заполнили все поля формы</p>
-                      <button onClick={() => setOpen(!open)} className=' bg-red-600 font-bold text-white rounded-lg px-10 mt-5 py-2 text-lg'>Назад</button>
+                    <button onClick={() => setOpen(!open)} className=' bg-[#F5900D] font-bold text-white rounded-lg px-10 mt-5 py-2 text-lg'>Готово</button>
+                  </div>
 
-                    </div>
-                  )}
+                  
+                )}
+                {formStatus === 'error' && (
+                  <div className='flex flex-col items-center justify-center'>
+                    <Image className='w-[5rem] h-[5rem]' src={ErrorMark} alt='Error Mark' />
+                    <p className='text-3xl'>Ошибка отправки</p>
+                    <p className='text-xl w-[20rem] text-center'>Пожалуйста, убедитесь, что вы заполнили все поля формы</p>
+                    <button onClick={() => setOpen(!open)} className=' bg-red-600 font-bold text-white rounded-lg px-10 mt-5 py-2 text-lg'>Назад</button>
+
+                  </div>
+                )}
 
 
 
 
 
-                </div>
-              </DialogBody>
-            </Dialog>
+              </div>
+            </DialogBody>
+          </Dialog>
         </dvi>
       </section>
       <div className=" bg-[#F39F1F] 2xl:py-8 py-5 flex justify-center px-10">
@@ -188,7 +203,7 @@ export default function Home() {
 
           <div className=" max-w-[300px] flex flex-col justify-center items-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-            <Image className="rounded-t-lg mt-10" src={Car} alt='car'/>
+            <Image className="rounded-t-lg mt-10" src={Car} alt='car' />
 
             <div className="p-5 space-y-7">
 
@@ -204,7 +219,7 @@ export default function Home() {
 
           <div className=" max-w-[300px] flex flex-col justify-center items-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-            <Image className="rounded-t-lg mt-10" src={Jeep} alt = 'jeep'/>
+            <Image className="rounded-t-lg mt-10" src={Jeep} alt='jeep' />
 
             <div className="p-5 space-y-7">
 
@@ -220,7 +235,7 @@ export default function Home() {
 
           <div className=" max-w-[300px] flex flex-col justify-center items-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-            <Image className="rounded-t-lg mt-10" src={SpecTeck} alt='special track'/>
+            <Image className="rounded-t-lg mt-10" src={SpecTeck} alt='special track' />
 
             <div className="p-5 space-y-7">
 
@@ -253,25 +268,25 @@ export default function Home() {
       <section className=" py-20 px-16">
         <div className="lg:flex md:grid grid-cols-2 justify-between items-center ">
           <div className="flex flex-col justify-center items-center">
-            <Image src={Pr1} alt="money"/>
+            <Image src={Pr1} alt="money" />
             <p className=" mt-4 uppercase text-white text-xl">недорого</p>
             <p className=" text-white w-[15rem] text-center">Гарантия низкой цены. Зачем переплачивать когда есть мы? Эвакуация авто от 100.000 сум;</p>
           </div>
 
           <div className="flex flex-col justify-center items-center lg:mt-0 mt-[3rem]">
-            <Image src={Pr2} alt='save time'/>
+            <Image src={Pr2} alt='save time' />
             <p className="mt-4 uppercase text-white text-xl">СРОЧНО 24/7</p>
             <p className=" text-white w-[15rem] text-center">Средняя подача эвакуатора 20-25 минут. Работаем во всех районах города Ташкент;</p>
           </div>
 
           <div className="flex flex-col justify-center items-center mt-[3rem]">
-            <Image src={Pr3} alt='save'/>
+            <Image src={Pr3} alt='save' />
             <p className="mt-4 uppercase text-white text-xl">С НАМИ БЕЗОПАСНО</p>
             <p className=" text-white w-[15rem] text-center">Аккуратно погрузим и бережно транспортируем в любую точку города Ташкент.  Принимаем к оплате банковские переводы;</p>
           </div>
 
           <div className="flex flex-col justify-center items-center lg:mt-[1.5rem] mt-[3rem]">
-            <Image src={Pr4} alt='list'/>
+            <Image src={Pr4} alt='list' />
             <p className="mt-4 uppercase text-white text-xl">ВСЕ ВИДЫ УСЛУГ</p>
             <p className=" text-white w-[15rem] text-center">Гарантия низкой цены. Зачем переплачивать когда есть мы? Эвакуация авто от 100.000 сум;</p>
           </div>
@@ -310,12 +325,12 @@ export default function Home() {
           </div>
 
           <div className="flex gap-5 items-center">
-            <Image className=" w-[2.5rem] h-[3rem]" src={MiniTrack} alt='mini track'/>
+            <Image className=" w-[2.5rem] h-[3rem]" src={MiniTrack} alt='mini track' />
             <p className=" text-white 2xl:text-2xl lg:text-lg font-semibold uppercase">быстрая<br />подача</p>
           </div>
 
           <div className="flex gap-5 items-center">
-            <Image className=" w-[2.5rem] h-[3rem]" src={AllDay} alt='all day'/>
+            <Image className=" w-[2.5rem] h-[3rem]" src={AllDay} alt='all day' />
             <p className=" text-white 2xl:text-2xl lg:text-lg font-semibold uppercase">Круглосуточно<br />и без выходных</p>
           </div>
 
@@ -326,7 +341,7 @@ export default function Home() {
 
         </div>
         <div className=" gap-4 lg:hidden flex items-center mt-4">
-          <Image src={Phone} className=" w-[2.5rem] h-[2.6rem]" alt='phone'/>
+          <Image src={Phone} className=" w-[2.5rem] h-[2.6rem]" alt='phone' />
           <p className="text-[#F39F1F]  font-extrabold 2xl:text-5xl lg:text-4xl text-2xl  uppercase">+998  (95 ) 055-55-55</p>
         </div>
       </footer>
