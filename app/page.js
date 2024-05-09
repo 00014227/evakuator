@@ -47,12 +47,12 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (name.trim() !== '' && phoneNumber.trim() !== '' && validPhoneNumber == true) {
-      // const message = `Новый клиет:\nИмя: ${name}\nТелефонный номер: ${phoneNumber}`;
-      // const botToken = '7045382663:AAE5yROztgrVRa5gln9e4A5Op8k6k-kNK1g';
-      // const chatId = '-4270854817';
+      const message = `Новый клиет:\nИмя: ${name}\nТелефонный номер: ${phoneNumber}`;
+      const botToken = '7045382663:AAE5yROztgrVRa5gln9e4A5Op8k6k-kNK1g';
+      const chatId = '-4270854817';
 
-      // const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-      // const params = new URLSearchParams({ chat_id: chatId, text: message });
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+      const params = new URLSearchParams({ chat_id: chatId, text: message });
 
       try {
         await axios.post(url, params);
